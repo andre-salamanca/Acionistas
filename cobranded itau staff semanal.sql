@@ -30,8 +30,8 @@
         refined.main.tb_historico_itau_cobranded
     WHERE
         CheckFaturamento = 1
-        AND anoreferencia = DATE_PART(year, CURRENT_DATE - INTERVAL '1 month')
-        AND mesreferencia = DATE_PART(month, CURRENT_DATE - INTERVAL '1 month');
+        AND anoreferencia = DATE_PART(year, CURRENT_DATE)
+        AND mesreferencia = DATE_PART(month, CURRENT_DATE);
 
 
     -- Cria uma nova tabela temporária sem duplicidades;
@@ -63,6 +63,3 @@
     --limpa tabelas temporárias
     DROP TABLE IF EXISTS #Mensalidade_Base;
     DROP TABLE IF EXISTS #Mensalidade;
-
-END
-$$
